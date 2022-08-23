@@ -37,11 +37,12 @@ ul {
   margin: 0 auto;
   width: 375px;
   height: 812px;
-  background-image: url("assets/background/4@3x.png");
+  background-image: url("../assets/background/4@3x.png");
   background-size: cover;
   padding-top: 10.7%;
   padding-left: 5.3%;
   padding-right: 5.3%;
+  padding-bottom: 0.73%;
 }
 
 .header__navigation {
@@ -148,12 +149,12 @@ ul {
 }
 
 .content__prices-item--monthly {
-  background-image: url("assets/prices/shape-1.svg");
+  background-image: url("../assets/prices/shape-1.svg");
 }
 
 .content__prices-item--annually {
   position: relative;
-  background-image: url("assets/prices/shape-2.svg");
+  background-image: url("../assets/prices/shape-2.svg");
 }
 
 .content__prices-item.active {
@@ -259,7 +260,7 @@ ul {
   background: linear-gradient(270deg, #1987FF 0%, #19CCFF 100%);
   border-radius: 3.7vh;
   margin-top: 2.95vh;
-  margin-bottom: 2.95vh;
+  margin-bottom: 1.97vh;
 }
 
 .content__continue-btn:active {
