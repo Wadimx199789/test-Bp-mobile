@@ -1,0 +1,288 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    max-width: fit-content;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    margin: 0;
+}
+
+ul,
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 375px;
+    height: 812px;
+    background-image:url("assets/background/4@3x.png");
+    background-size: cover;
+    padding-top: 10.7%;
+    padding-left: 5.3%;
+    padding-right: 5.3%;
+}
+
+// -----------------------------------------------------header------------------------------------------------//
+.header {
+    &__navigation {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            cursor: pointer;
+        }
+
+        &-restore {
+            font-family: 'SFProText', sans-serif;
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+}
+
+//--------------------------------------------------------main------------------------------------------------//
+.main {
+    margin-top: 18.8vh;
+}
+
+.content {
+    &__features {
+        margin: 0 auto;
+        width: fit-content;
+        margin-bottom: 5.3vh;
+
+        &-item {
+            img{
+                width: 1.25em;
+            }
+            display: flex;
+            align-items: center;
+            line-height: 179%;
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.684495);
+            column-gap: 0.5em;
+        }
+
+        span {
+            font-family: 'SFProText';
+            font-size: 1.0625rem;
+            line-height: 1.875rem;
+            color: #FFFFFF;
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.684495);
+        }
+    }
+
+    &__title {
+        font-family: 'San Francisco Pro';
+        font-weight: 700;
+        font-size: 2.25rem;
+        line-height: 2.625rem;
+        text-align: center;
+        color: #FFFFFF;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 3.6vh;
+    }
+
+    &__prices {
+        display: flex;
+        justify-content: space-evenly;
+
+        &-item {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            background-size: contain;
+            background-repeat: round;
+            position: relative;
+            align-items: center;
+            opacity: 0.25;
+            width: 131px;
+            height: 162px;
+            justify-content: space-evenly;
+
+            &--monthly {
+                background-image: url('assets/prices/shape-1.svg');
+            }
+
+            &--annually {
+                position: relative;
+                background-image: url('assets/prices/shape-2.svg');
+            }
+        }
+
+        &-item.active {
+            opacity: 1;
+            transform: scale(1.1, 1.1);
+        }
+
+        &-period {
+            font-family: 'San Francisco Pro';
+            line-height: 1.25rem;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 1.0625rem;
+            margin-top: 2.83vh;
+        }
+
+        &-cost {
+            font-family: 'San Francisco Pro';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.375rem;
+            line-height: 0.9375rem;
+            text-align: center;
+            color: #FFFFFF;
+            margin-top: 2.22vh;
+
+            span {
+                display: block;
+                text-align: center;
+                font-family: 'San Francisco Pro';
+                font-weight: 300;
+                font-size: 0.75rem;
+                line-height: 0.875rem;
+                color: #FFFFFF;
+
+            }
+        }
+
+        &-slogan {
+            font-family: 'San Francisco Pro';
+            font-size: 0.875rem;
+            line-height: 1;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            font-size: 0.875rem;
+            font-weight: bold;
+            margin-top: 0.86vh;
+            width: 104%;
+            background-color: #495795;
+            padding: 0.2em 0;
+            letter-spacing: 1px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        &-price {
+            font-family: 'San Francisco Pro';
+            font-size: 0.75rem;
+            line-height: 0.875rem;
+            text-align: center;
+            color: #FFFFFF;
+            margin: 1.23vh 0 1.6vh;
+        }
+
+        &-discount {
+            font-family: 'San Francisco Pro';
+            line-height: 0.75rem;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 0.625rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 24.43%;
+            height: 19.4%;
+            border-radius: 50%;
+            background-color: #DB0000;
+        }
+    }
+
+    &__continue-btn {
+        font-family: 'San Francisco Pro';
+        font-size: 1.0625rem;
+        line-height: 1.0625rem;
+        color: #ffffff;
+        width: 83.6%;
+        padding: 2.34vh 0;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        font-size: 1.0625rem;
+        background: linear-gradient(270deg, #1987FF 0%, #19CCFF 100%);
+        border-radius: 3.7vh;
+        margin-top: 2.95vh;
+        margin-bottom: 2.95vh;
+        &:active{
+            position: relative;
+            top:1px;
+        }
+    }
+}
+
+
+
+
+// ---------------------------------------------------------footer-----------------------------------//
+.footer{
+    &__cancel-box {
+        display: flex;
+        justify-content: center;
+    }
+    &__cancel-btn {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.6875rem;
+        line-height: 0.8125rem;
+        color: #FFFFFF;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+    }
+    &__rules {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.6875rem;
+        line-height: 0.8125rem;
+        text-decoration-line: underline;
+        color: #BDC0D0;
+        margin-top: 1.97vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__rules-terms,
+    &__rules-privacy {
+        text-decoration-line: underline;
+        color: #BDC0D0;
+    }
+}
+
+// -----------------------------------------home----------------------------------------------//
+.home {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.home__line {
+    width: 40.14%;
+    height: 0.62vh;
+    margin: 0 auto;
+    margin-top: 3.32vh;
+    border-radius: 0.5em;
+    background-color: #FFFFFF;
+}
