@@ -108,6 +108,8 @@ ul {
         justify-content: space-evenly;
 
         &-item {
+            transition: transform .5s;
+            -webkit-transition: transform .5s;
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -185,6 +187,7 @@ ul {
         }
 
         &-price {
+           
             font-family: 'San Francisco Pro';
             font-size: 0.75rem;
             line-height: 0.875rem;
@@ -287,3 +290,5 @@ ul {
     border-radius: 0.5em;
     background-color: #FFFFFF;
 }
+
+
