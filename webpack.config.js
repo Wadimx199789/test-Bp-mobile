@@ -1,4 +1,3 @@
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
@@ -28,6 +27,10 @@ module.exports = {
                 {
                     from: path.resolve(__dirname, "assets", "icon"),
                     to: path.resolve(__dirname, "dist", "assets", "icon"),
+                },
+                {
+                    from: path.resolve(__dirname, "assets", "languages"),
+                    to: path.resolve(__dirname, "dist", "assets", "languages"),
                 },
             ],
             options: {
