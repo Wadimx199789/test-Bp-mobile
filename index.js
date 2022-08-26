@@ -11,7 +11,7 @@ const contentContinueBtn = document.querySelector(".content__continue-btn");
 const contentPricesElements = [...document.querySelectorAll(".content__prices-item")];
 
 setButtonRef();
-// checkLanguageParameterFromUrl();
+checkLanguageParameterFromUrl();
 
 function setButtonRef(priceElement) {
     if (priceElement) {
@@ -44,7 +44,8 @@ function checkLanguageParameterFromUrl() {
     }
 
     params.set(languageParameterName, urlLanguage);
-    window.location.search = params.toString();
+    var newRelativePathQuery = window.location.pathname + '?' + params.toString();
+    history.pushState(null, '', newRelativePathQuery);
 }
 
 function getBrowserLanguage() {
