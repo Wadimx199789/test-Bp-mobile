@@ -1,3 +1,8 @@
+
+import "./styles/normalize.css";
+import "./assets/fonts/fonts.css";
+import "./styles/style.css";
+
 const defaultRef = 'https://google.com/';
 const languageParameterName = 'lang';
 const availableLanguages = ['en','es','fr','ja','nl','ru','zh'];
@@ -6,7 +11,7 @@ const contentContinueBtn = document.querySelector(".content__continue-btn");
 const contentPricesElements = [...document.querySelectorAll(".content__prices-item")];
 
 setButtonRef();
-checkLanguageParameterFromUrl();
+// checkLanguageParameterFromUrl();
 
 function setButtonRef(priceElement) {
     if (priceElement) {

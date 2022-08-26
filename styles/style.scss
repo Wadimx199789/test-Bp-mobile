@@ -1,3 +1,4 @@
+
 *,
 *::after,
 *::before {
@@ -138,6 +139,7 @@ ul {
         }
 
         &-item.active {
+            
             opacity: 1;
             transform: scale(1.1, 1.1);
         }
