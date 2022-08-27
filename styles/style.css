@@ -1,9 +1,20 @@
+html {
+  font-size: 16px;
+}
+
 *,
 *::after,
 *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 16px;
+}
+
+.decrease-features-margin {
+  margin-bottom: 4.8vh !important;
+}
+
+.decrease-size {
+  font-size: 14px;
 }
 
 body {
@@ -92,7 +103,7 @@ ul {
 }
 
 .content__features-item img {
-  width: 1.25em;
+  width: 1.5em;
 }
 
 .content__features span {
@@ -178,22 +189,18 @@ ul {
 .content__prices-cost {
   font-family: 'San Francisco Pro';
   font-style: normal;
-  font-weight: 700;
-  font-size: 1.375rem;
-  line-height: 0.9375rem;
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
   text-align: center;
   color: #FFFFFF;
   margin-top: 2.22vh;
 }
 
-.content__prices-cost span {
-  display: block;
-  text-align: center;
-  font-family: 'San Francisco Pro';
-  font-weight: 300;
-  font-size: 0.75rem;
-  line-height: 0.875rem;
-  color: #FFFFFF;
+.content__prices-cost strong {
+  font-weight: 700;
+  font-size: 1.375rem;
+  line-height: 0.9375rem;
 }
 
 .content__prices-slogan {
