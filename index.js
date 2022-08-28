@@ -54,9 +54,9 @@ function handlePriceElementClick(priceElement) {
     if (activePriceElement) {
         activePriceElement.classList.remove('active');
     }
-
-    priceElement.classList.add("active");
     setButtonRef(priceElement);
+    priceElement.classList.add("active");
+
 }
 
 function getLanguageParameterFromUrl() {
@@ -108,7 +108,7 @@ function scaleContent(language){
 }
 
 async function loadContent(language) {
-    await scaleContent(language);
+    scaleContent(language);
     return await fetch(`./assets/languages/${language}.json`);
 }
 
