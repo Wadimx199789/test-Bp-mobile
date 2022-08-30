@@ -1,6 +1,6 @@
 import "./styles/normalize.css";
-import "../assets/fonts/fonts.css";
 import "./styles/style.css";
+import "./styles/fonts/fonts.css";
 
 const languageParameterName = 'lang';
 const availableLanguages = ['en', 'es', 'fr', 'ja', 'nl', 'ru', 'zh'];
