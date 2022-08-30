@@ -1,38 +1,23 @@
 import "./styles/normalize.css";
-import "./assets/fonts/fonts.css";
+import "../assets/fonts/fonts.css";
 import "./styles/style.css";
 
-const defaultRef = 'https://google.com/';
 const languageParameterName = 'lang';
 const availableLanguages = ['en', 'es', 'fr', 'ja', 'nl', 'ru', 'zh'];
 const defaultLanguage = 'en';
 const contentContinueBtn = document.querySelector(".content__continue-btn");
 const contentPricesElements = [...document.querySelectorAll(".content__prices-item")];
+const descreaseMarginClassName = "decrease-features-margin";
 
 contentPricesElements.forEach((priceElement) => {
     priceElement.addEventListener("click", () => handlePriceElementClick(priceElement));
 });
 
-window.addEventListener("resize",()=>{
-    const language = window.navigator.language.split('-')[0];
-    if (!(language === 'ru' || language === 'es' || language === 'fr' || language === 'nl')){
-        const decreasedFontDocument = document.documentElement.classList.contains("decrease-size");
-        if(decreasedFontDocument){
-            document.documentElement.classList.remove("decrease-size")
-        }
-
-        // if(!window.innerHeight < 736 && (language === 'fr' || language === 'ru') ){
-        //     const decreasedContentFeatures = document.querySelector(".content__features").classList.contains("decrease-features-margin");
-        //     if(decreasedContentFeatures){
-        //         document.querySelector(".content__features").classList.remove("decrease-features-margin");
-        //     }
-        // }
-
-    }
-    
-})
-
 initPage();
+
+window.addEventListener("resize", () => {
+    scaleContent(document.documentElement.getAttribute(languageParameterName));
+})
 
 async function initPage() {
     setButtonRef();
@@ -43,9 +28,10 @@ async function initPage() {
 
 function setButtonRef(priceElement) {
     if (priceElement) {
-        contentContinueBtn.setAttribute('href', priceElement.dataset.ref)
+        contentContinueBtn.setAttribute('href', priceElement.dataset.ref);
     } else {
-        contentContinueBtn.setAttribute('href', defaultRef)
+        const activePriceElement = contentPricesElements.find(priceElement => priceElement.classList.contains("active"));
+        contentContinueBtn.setAttribute('href', activePriceElement.dataset.ref);
     }
 }
 
@@ -73,6 +59,7 @@ function getLanguageParameterFromUrl() {
 
     params.set(languageParameterName, urlLanguage);
     var newRelativePathQuery = window.location.pathname + '?' + params.toString();
+    document.documentElement.setAttribute("lang", urlLanguage);
     history.pushState(null, '', newRelativePathQuery);
 
     return urlLanguage;
@@ -85,6 +72,7 @@ function getBrowserLanguage() {
 function parseLanguage(language) {
     return language.split('-')[0];
 }
+
 function setPrice(element) {
     const containerOfElement = element.parentNode;
     const containerCost = Number(containerOfElement.querySelector(".content__prices-cost").dataset.price.substring(1));
@@ -96,14 +84,12 @@ function setPrice(element) {
     }
 }
 
-function scaleContent(language){
-    if (language === 'ru' || language === 'es' || language === 'fr' || language === 'nl') {
-        const contentFeatures = document.querySelector(".content__features");
-        document.documentElement.classList.add('decrease-size');
-        if (window.innerHeight < 736 && (language === 'fr' || language === 'ru')){
-            contentFeatures.classList.add("decrease-features-margin");
-        }
-
+function scaleContent(language) {
+    const contentFeatures = document.querySelector(".content__features");
+    if (window.innerHeight < 736 && (language === 'fr' || language === 'ru')) {
+        contentFeatures.classList.add(descreaseMarginClassName);
+    } else if (contentFeatures.classList.contains(descreaseMarginClassName)) {
+        contentFeatures.classList.remove(descreaseMarginClassName);
     }
 }
 
@@ -113,7 +99,6 @@ async function loadContent(language) {
 }
 
 function insertPageContent(pageContent) {
-    const variableElements = document.querySelectorAll(".content__features-item");
     const TextElements = document.querySelectorAll("[data-variable]");
     for (let element of TextElements) {
         const attrVariable = element.dataset.variable;

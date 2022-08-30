@@ -1,5 +1,9 @@
+
 html {
     font-size: 16px;
+    &[lang="ru"], &[lang="es"], &[lang="fr"], &[lang="nl"] {
+        font-size: 14px;
+    }
 }
 
 *,
@@ -11,10 +15,6 @@ html {
 .decrease-features-margin{
     margin-bottom: 4.8vh !important;
 }
-.decrease-size{
-    font-size: 14px;
-}
-
 body {
     max-width: fit-content;
     margin: 0 auto;
