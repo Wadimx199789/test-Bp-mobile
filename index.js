@@ -77,10 +77,11 @@ function setPrice(element) {
     const containerOfElement = element.parentNode;
     const containerCost = Number(containerOfElement.querySelector(".content__prices-cost").dataset.price.substring(1));
     if (containerOfElement.classList.contains("content__prices-item--annually")) {
-        element.innerHTML = element.innerHTML.replace('{{price}}/', `${Math.floor((containerCost / 12).toFixed(3) * 100) / 100} `);
+        element.innerHTML = element.innerHTML.replace('{{price}}/', `$${Math.floor((containerCost / 12).toFixed(3) * 100) / 100} `);
+        console.log(element.innerHTML)
     }
     if (containerOfElement.classList.contains("content__prices-item--monthly")) {
-        element.innerHTML = element.innerHTML.replace('{{price}}/', `${containerCost} `);
+        element.innerHTML = element.innerHTML.replace('{{price}}/', `$${containerCost} `);
     }
 }
 
@@ -101,16 +102,18 @@ async function loadContent(language) {
 function insertPageContent(pageContent) {
     const TextElements = document.querySelectorAll("[data-variable]");
     for (let element of TextElements) {
+        // console.log(element.hasAttribute("data-calc"))
         const attrVariable = element.dataset.variable;
         element.innerHTML = pageContent[attrVariable];
         if (pageContent.hasOwnProperty(attrVariable)) {
-            if (element.hasAttribute("data-price")) {
+            if (element.hasAttribute("data-price") && !element.hasAttribute("data-calc")) {
                 element.innerHTML = (element.innerHTML.indexOf('{{price}}')) ? element.innerHTML.replace('{{price}}', `${element.dataset.price} `) : element.innerHTML.replace('{{price}}/', `${element.dataset.price} `);
             }
-            if (element.hasAttribute("data-calc")) {
-                setPrice(element)
-            }
+           
 
+        }
+        if(element.hasAttribute("data-calc")){
+            setPrice(element);
         }
 
     }
